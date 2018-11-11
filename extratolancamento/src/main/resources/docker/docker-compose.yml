@@ -1,0 +1,15 @@
+version: "2.1"
+
+services:
+  java-challenge:
+    image: extratolancamento:0.0.1-SNAPSHOT
+    ports:
+    - "8080:8080"
+    networks:
+    - cielo-network  
+    
+    restart: on-failure
+
+networks:
+  cielo-network:
+    driver: bridge
