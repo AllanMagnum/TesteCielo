@@ -1,7 +1,11 @@
 	package com.cielo.extratolancamento.service;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +49,8 @@ public class ExtratoLancamentoService{
 			extratoLancamentoOutputDto.setDataConfirmacao(lancamento.getDataLancamentoContaCorrenteCliente());
 			extratoLancamentoOutputDto.setDescricao(lancamento.getLancamentoContaCorrenteClienteDto().getNomeTipoOperacao());
 			extratoLancamentoOutputDto.setNumero(lancamento.getLancamentoContaCorrenteClienteDto().getNumeroRemessaBanco());
-			extratoLancamentoOutputDto.setSitucao(lancamento.getLancamentoContaCorrenteClienteDto().getNomeSituacaoRemessa());
-			extratoLancamentoOutputDto.setValorFinal(lancamento.getValorLancamentoRemessa());
+			extratoLancamentoOutputDto.setSituacao(lancamento.getLancamentoContaCorrenteClienteDto().getNomeSituacaoRemessa());
+			extratoLancamentoOutputDto.setValorFinal(this.formatarValor(lancamento.getValorLancamentoRemessa()) );
 						
 			lancamentos.add(extratoLancamentoOutputDto);
 		});
@@ -60,4 +64,16 @@ public class ExtratoLancamentoService{
 				controleLancamentoDto.getLancamentoContaCorrenteClienteDto().getDadosDomicilioBancario().getNumeroContaCorrente();
 					
 	}	
+	
+	private String formatarValor(BigDecimal modelVal) {
+		
+		BigDecimal displayVal = modelVal.setScale(2, RoundingMode.HALF_EVEN);
+		
+		Locale meuLocal = new Locale( "pt", "BR" ); 
+		
+		NumberFormat usdCostFormat = NumberFormat.getCurrencyInstance(meuLocal);
+		usdCostFormat.setMinimumFractionDigits( 1 );
+		usdCostFormat.setMaximumFractionDigits( 2 );
+		return usdCostFormat.format(displayVal.doubleValue()); 
+	}
 }

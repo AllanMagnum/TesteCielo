@@ -1,7 +1,7 @@
 package com.cielo.extratolancamento.controller.dto.deserializer;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -26,8 +26,8 @@ public class ControleLancamentoDtoDeserializer extends AbstractDeserializer<Cont
 		LancamentoContaCorrenteClienteDto lancamentoContaCorrenteClienteDto = this
 				.deserializeLancamentoContaCorrenteClienteDto(jsonNode);
 
-		LocalDateTime dataEfetivaLancamento = getLocalDateTimeField(jsonNode, Field.DATE_EFETIVA_LANCAMENTO);
-		LocalDateTime dataLancamentoContaCorrenteCliente = getLocalDateTimeField(jsonNode, Field.DATE_LANCAMENTO_CONTA_CORRENTE_CLIENTE);
+		LocalDate dataEfetivaLancamento = getLocalDateTimeField(jsonNode, Field.DATE_EFETIVA_LANCAMENTO);
+		LocalDate dataLancamentoContaCorrenteCliente = getLocalDateTimeField(jsonNode, Field.DATE_LANCAMENTO_CONTA_CORRENTE_CLIENTE);
 		Long numeroEvento = getLongField(jsonNode, Field.NUMERO_EVENTO);
 		String descricaoGrupoPagamento = getTextField(jsonNode, Field.DESCRICAO_GRUPO_PAGAMENTO);
 		String codigoIdentificadorUnico = getTextField(jsonNode, Field.CODIGO_IDENTIFICAR_UNICO);

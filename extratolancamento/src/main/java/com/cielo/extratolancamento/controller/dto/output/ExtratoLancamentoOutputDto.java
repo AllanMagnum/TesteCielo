@@ -1,43 +1,42 @@
 package com.cielo.extratolancamento.controller.dto.output;
 
-import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class ExtratoLancamentoOutputDto {
-	private LocalDateTime dataLancamento; 
-	private String Descricao;
+	private LocalDate dataLancamento; 
+	private String descricao;
 	private Long numero;
-	private String situcao;
-	private LocalDateTime dataConfirmacao;
+	private String situacao;
+	private LocalDate dataConfirmacao;
 	private String dadosBancarios;
-	private BigDecimal valorFinal;
+	private String valorFinal;
 	
 	public ExtratoLancamentoOutputDto() {
 		super();
 	}
 
-	public ExtratoLancamentoOutputDto(LocalDateTime dataLancamento, String descricao, Long numero, String situcao,
-			LocalDateTime dataConfirmacao, String dadosBancarios, BigDecimal valorFinal) {
+	public ExtratoLancamentoOutputDto(LocalDate dataLancamento, String descricao, Long numero, String situacao,
+			LocalDate dataConfirmacao, String dadosBancarios, String valorFinal) {
 		this.dataLancamento = dataLancamento;
-		Descricao = descricao;
+		this.descricao = descricao;
 		this.numero = numero;
-		this.situcao = situcao;
+		this.situacao = situacao;
 		this.dataConfirmacao = dataConfirmacao;
 		this.dadosBancarios = dadosBancarios;
 		this.valorFinal = valorFinal;
 	}
 	
-	public LocalDateTime getDataLancamento() {
+	public LocalDate getDataLancamento() {
 		return dataLancamento;
 	}
-	public void setDataLancamento(LocalDateTime dataLancamento) {
+	public void setDataLancamento(LocalDate dataLancamento) {
 		this.dataLancamento = dataLancamento;
 	}
 	public String getDescricao() {
-		return Descricao;
+		return descricao;
 	}
 	public void setDescricao(String descricao) {
-		Descricao = descricao;
+		this.descricao = descricao;
 	}
 	public Long getNumero() {
 		return numero;
@@ -45,16 +44,16 @@ public class ExtratoLancamentoOutputDto {
 	public void setNumero(Long numero) {
 		this.numero = numero;
 	}
-	public String getSitucao() {
-		return situcao;
+	public String getSituacao() {
+		return situacao;
 	}
-	public void setSitucao(String situcao) {
-		this.situcao = situcao;
+	public void setSituacao(String situacao) {
+		this.situacao = situacao;
 	}
-	public LocalDateTime getDataConfirmacao() {
+	public LocalDate getDataConfirmacao() {
 		return dataConfirmacao;
 	}
-	public void setDataConfirmacao(LocalDateTime dataConfirmacao) {
+	public void setDataConfirmacao(LocalDate dataConfirmacao) {
 		this.dataConfirmacao = dataConfirmacao;
 	}
 	public String getDadosBancarios() {
@@ -63,10 +62,10 @@ public class ExtratoLancamentoOutputDto {
 	public void setDadosBancarios(String dadosBancarios) {
 		this.dadosBancarios = dadosBancarios;
 	}
-	public BigDecimal getValorFinal() {
+	public String getValorFinal() {
 		return valorFinal;
 	}
-	public void setValorFinal(BigDecimal valorFinal) {
+	public void setValorFinal(String valorFinal) {
 		this.valorFinal = valorFinal;
 	}
 	

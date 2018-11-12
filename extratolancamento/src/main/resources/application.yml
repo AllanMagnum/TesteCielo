@@ -7,3 +7,6 @@ spring:
 legacy:
   ingration:
     url: https://www.cielo.com.br
+    
+cors.origins:
+  ${ENDPOINT_FRONT:http://localhost:4200}

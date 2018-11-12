@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.Instant;
-import java.time.LocalDateTime;
-import java.util.TimeZone;
+import java.time.LocalDate;
+import java.time.ZoneId;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -35,9 +35,9 @@ public abstract class AbstractDeserializer<T> extends JsonDeserializer<T> {
         return new BigDecimal(totalValue).setScale(2, RoundingMode.HALF_EVEN);
     }
 
-    protected LocalDateTime getLocalDateTimeField(final JsonNode jsonNode, final Field field) {
-        final Long timeStamp = getIntegerField(jsonNode, field).longValue();
-        return LocalDateTime.ofInstant(Instant.ofEpochMilli(timeStamp), TimeZone.getDefault().toZoneId());
+    protected LocalDate getLocalDateTimeField(final JsonNode jsonNode, final Field field) {
+        final Long timeStamp = Long.parseLong( getTextField(jsonNode, field) );
+		return  Instant.ofEpochMilli(timeStamp).atZone(ZoneId.systemDefault()).toLocalDate();       
     }
 
     protected String getTextField(final JsonNode jsonNode, final Field field){

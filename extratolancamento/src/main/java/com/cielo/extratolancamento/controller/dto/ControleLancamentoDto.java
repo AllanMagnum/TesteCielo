@@ -1,12 +1,12 @@
 package com.cielo.extratolancamento.controller.dto;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class ControleLancamentoDto {
 	private LancamentoContaCorrenteClienteDto lancamentoContaCorrenteClienteDto;
-	private LocalDateTime dataEfetivaLancamento;
-	private LocalDateTime dataLancamentoContaCorrenteCliente;
+	private LocalDate dataEfetivaLancamento;
+	private LocalDate dataLancamentoContaCorrenteCliente;
 	private Long numeroEvento;
 	private String descricaoGrupoPagamento;
 	private String codigoIdentificadorUnico;
@@ -17,7 +17,7 @@ public class ControleLancamentoDto {
 	private BigDecimal valorLancamentoRemessa;
 		
 	public ControleLancamentoDto(LancamentoContaCorrenteClienteDto lancamentoContaCorrenteClienteDto,
-			LocalDateTime dataEfetivaLancamento, LocalDateTime dataLancamentoContaCorrenteCliente, Long numeroEvento,
+			LocalDate dataEfetivaLancamento, LocalDate dataLancamentoContaCorrenteCliente, Long numeroEvento,
 			String descricaoGrupoPagamento, String codigoIdentificadorUnico, String nomeBanco,
 			String quantidadeLancamentoRemessa, Long numeroRaizCNPJ, Long numeroSufixoCNPJ,
 			BigDecimal valorLancamentoRemessa) {
@@ -40,17 +40,17 @@ public class ControleLancamentoDto {
 	public void setLancamentoContaCorrenteClienteDto(LancamentoContaCorrenteClienteDto lancamentoContaCorrenteClienteDto) {
 		this.lancamentoContaCorrenteClienteDto = lancamentoContaCorrenteClienteDto;
 	}
-	public LocalDateTime getDataEfetivaLancamento() {
+	public LocalDate getDataEfetivaLancamento() {
 		return dataEfetivaLancamento;
 	}
-	public void setDataEfetivaLancamento(LocalDateTime dataEfetivaLancamento) {
+	public void setDataEfetivaLancamento(LocalDate dataEfetivaLancamento) {
 		this.dataEfetivaLancamento = dataEfetivaLancamento;
 	}
-	public LocalDateTime getDataLancamentoContaCorrenteCliente() {
+	public LocalDate getDataLancamentoContaCorrenteCliente() {
 		return dataLancamentoContaCorrenteCliente;
 	}
 
-	public void setDataLancamentoContaCorrenteCliente(LocalDateTime dataLancamentoContaCorrenteCliente) {
+	public void setDataLancamentoContaCorrenteCliente(LocalDate dataLancamentoContaCorrenteCliente) {
 		this.dataLancamentoContaCorrenteCliente = dataLancamentoContaCorrenteCliente;
 	}
 
